@@ -1,7 +1,7 @@
 import os
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
-from flask import send_from_directory
+from flask import send_from_directory, send_file
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'mp4', 'mkv', 'mp3', 'epub'}
@@ -47,4 +47,7 @@ def downloads():
 
 @app.route("/download_file/<name>")
 def download_file(name):
-    return send_from_directory(app.config["UPLOAD_FOLDER"], name)
+    # return send_from_directory(app.config["UPLOAD_FOLDER"], name)
+    thisdir = os.getcwd()
+    file = os.path.join('uploads', name)
+    return send_file(file, as_attachment=True)
