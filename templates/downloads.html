@@ -12,7 +12,7 @@
     <div class="downlods">
         {% for file in files %}
         <div>
-            <a href="#">{{ file }}</a>
+            <a href="{{ url_for('download_file', name=file) }}">{{ file }}</a>
         </div>
         {% endfor %}
     </div>

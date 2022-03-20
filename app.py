@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 from flask import send_from_directory
 
 UPLOAD_FOLDER = 'uploads'
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'mp4', 'mkv', 'mp3', 'epub'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -44,3 +44,7 @@ def downloads():
     print(os.path.join(thisdir, 'uploads'))
     files = os.listdir(os.path.join(thisdir, 'uploads'))
     return render_template('downloads.html', files=files)
+
+@app.route("/download_file/<name>")
+def download_file(name):
+    return send_from_directory(app.config["UPLOAD_FOLDER"], name)
