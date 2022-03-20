@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -12,4 +13,7 @@ def upload():
 
 @app.route("/downloads")
 def downloads():
-    return render_template('downloads.html')
+    thisdir = os.getcwd()
+    print(os.path.join(thisdir, 'uploads'))
+    files = os.listdir(os.path.join(thisdir, 'uploads'))
+    return render_template('downloads.html', files=files)

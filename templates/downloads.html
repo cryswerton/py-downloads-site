@@ -9,6 +9,14 @@
 {% block body %}
 
     <h1>Downloads Page</h1>
+    <div class="downlods">
+        {% for file in files %}
+        <div>
+            <a href="#">{{ file }}</a>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
     <div>
         <a href="{{ url_for('home')}}">Home</a>
     </div>
