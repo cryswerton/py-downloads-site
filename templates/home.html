@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+    <title>Py Downloads</title>
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>Home Page</h1>
+
+    <div>
+        <a href="{{ url_for('upload')}}">Upload</a>
+    </div>
+    <div>
+        <a href="{{ url_for('downloads')}}">Downloads</a>
+    </div>
+
+{% endblock %}
