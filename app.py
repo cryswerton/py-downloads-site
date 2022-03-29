@@ -4,7 +4,9 @@ from werkzeug.utils import secure_filename
 from flask import send_from_directory, send_file
 
 UPLOAD_FOLDER = 'uploads'
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'mp4', 'mkv', 'mp3', 'epub'}
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg',
+                     'jpeg', 'mp4', 'mkv', 'mp3', 
+                     'epub', 'hevc', 'mov', 'mpeg'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
