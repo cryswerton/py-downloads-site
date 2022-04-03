@@ -53,3 +53,11 @@ def download_file(name):
     thisdir = os.getcwd()
     file = os.path.join('uploads', name)
     return send_file(file, as_attachment=True)
+
+@app.route("/delete_file/<name>")
+def delete_file(name):
+    # return send_from_directory(app.config["UPLOAD_FOLDER"], name)
+    thisdir = os.getcwd()
+    file = os.path.join('uploads', name)
+    os.remove(file)
+    return redirect(url_for('downloads'))
