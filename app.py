@@ -40,6 +40,7 @@ def downloads():
     thisdir = os.getcwd()
     print(os.path.join(thisdir, 'uploads'))
     files = os.listdir(os.path.join(thisdir, 'uploads'))
+    files.remove(".gitignore")
     return render_template('downloads.html', files=files)
 
 @app.route("/download_file/<name>")
