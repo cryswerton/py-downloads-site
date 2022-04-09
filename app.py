@@ -6,7 +6,7 @@ from flask import send_from_directory, send_file
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg',
                      'jpeg', 'mp4', 'mkv', 'mp3', 
-                     'epub', 'hevc', 'mov', 'mpeg'}
+                     'epub', 'hevc', 'mov', 'mpeg', 'srt'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
