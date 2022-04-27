@@ -26,13 +26,14 @@ def upload():
 
     if request.method == 'POST':
         # check if the post request has the file part
-        file = request.files['file']
+        files = request.files.getlist('file[]')
     
-        if file.filename:
-            if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                return redirect(url_for('downloads'))
+        for file in files:
+            if file.filename:
+                if file and allowed_file(file.filename):
+                    filename = secure_filename(file.filename)
+                    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                    # return redirect(url_for('downloads'))
         return redirect(url_for('downloads'))
 
 @app.route("/downloads")
