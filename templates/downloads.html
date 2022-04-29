@@ -9,20 +9,22 @@
 {% block body %}
 
     <h1>Downloads Page</h1>
-    <div class="downlods">
+    <div class="downlods py-2">
         {% for file in files %}
-        <div>
+        <div class="my-2">
             <a href="{{ url_for('download_file', name=file) }}">{{ file }}</a>
-            <button type="button" onclick="window.location.href='{{ url_for( 'delete_file', name=file) }}';">X</button>
+            <button class="btn btn-danger py-0 px-2" type="button" onclick="window.location.href='{{ url_for( 'delete_file', name=file) }}';">X</button>
         </div>
         {% endfor %}
     </div>
     <hr>
-    <div>
-        <a href="{{ url_for('home')}}">Home</a>
-    </div>
-    <div>
-        <a href="{{ url_for('upload')}}">Upload</a>
+    <div class="links d-flex justify-content-between">
+        <div>
+            <a href="{{ url_for('home')}}">Home</a>
+        </div>
+        <div>
+            <a href="{{ url_for('upload')}}">Upload</a>
+        </div>
     </div>
 
 {% endblock %}

@@ -14,11 +14,13 @@
       <input type=submit value=Upload>
     </form>
     <hr>
-    <div>
-        <a href="{{ url_for('home')}}">Home</a>
-    </div>
-    <div>
-        <a href="{{ url_for('downloads')}}">Downloads</a>
+    <div class="links d-flex justify-content-between">
+        <div>
+            <a href="{{ url_for('home')}}">Home</a>
+        </div>
+        <div>
+            <a href="{{ url_for('downloads')}}">Downloads</a>
+        </div>
     </div>
 
 {% endblock %}
