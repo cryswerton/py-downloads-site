@@ -62,4 +62,4 @@ def delete_file(name):
     thisdir = os.getcwd()
     file = os.path.join('uploads', name)
     os.remove(file)
-    return redirect(url_for('downloads'))
+    return redirect(url_for('home'))
