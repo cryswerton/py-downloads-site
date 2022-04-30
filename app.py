@@ -17,7 +17,12 @@ def allowed_file(filename):
 
 @app.route("/")
 def home():
-    return render_template('home.html')
+    thisdir = os.getcwd()
+    print(os.path.join(thisdir, 'uploads'))
+    files = os.listdir(os.path.join(thisdir, 'uploads'))
+    files.remove(".gitignore")
+    print(files)
+    return render_template('home.html', files=files)
 
 @app.route("/upload", methods=['GET', 'POST'])
 def upload():
@@ -34,15 +39,15 @@ def upload():
                     filename = secure_filename(file.filename)
                     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                     # return redirect(url_for('downloads'))
-        return redirect(url_for('downloads'))
+        return redirect(url_for('home'))
 
-@app.route("/downloads")
-def downloads():
-    thisdir = os.getcwd()
-    print(os.path.join(thisdir, 'uploads'))
-    files = os.listdir(os.path.join(thisdir, 'uploads'))
-    files.remove(".gitignore")
-    return render_template('downloads.html', files=files)
+# @app.route("/downloads")
+# def downloads():
+#     thisdir = os.getcwd()
+#     print(os.path.join(thisdir, 'uploads'))
+#     files = os.listdir(os.path.join(thisdir, 'uploads'))
+#     files.remove(".gitignore")
+#     return render_template('downloads.html', files=files)
 
 @app.route("/download_file/<name>")
 def download_file(name):
