@@ -1,4 +1,4 @@
-# Simple Shell Cleaner
+# Py Upload Example
 
 ## What is it?
 A simple Python App that's served only on the local network just to exchange files between the devices on the same network.
