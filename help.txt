@@ -1,0 +1,11 @@
+Run these commands to install pipenv as well as all the dependencies:
+pip install pipenv
+pipenv install
+
+Make the server visible to all devices in the local network:
+flask run --host=0.0.0.0
+
+Some Flask Set ups:
+set FLASK_APP=app
+set FLASK_ENV=development
+set FLASK_DEBUG=1
