@@ -1,5 +1,6 @@
 Run these commands to install pipenv as well as all the dependencies:
 pip install pipenv
+pipenv shell
 pipenv install
 
 Make the server visible to all devices in the local network:
