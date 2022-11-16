@@ -6,6 +6,9 @@ A simple Python App that's served only on the local network just to exchange fil
 ### Note
 This was only tested on Windows machines
 
+## Dependencies
+Python 3.10
+
 ## How to Install It
 
 To use it you need Python and pip installed and working on you machine.
